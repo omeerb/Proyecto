@@ -1,3 +1,6 @@
+/*Como usuario, quiero realizar pruebas automatizadas para verificar el proceso 
+de inicio de sesión en Facebook, con el fin de que la sesión se inicie exitosamente.
+*/
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const screenshot = require('screenshot-desktop');

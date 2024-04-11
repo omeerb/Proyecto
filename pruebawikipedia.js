@@ -1,3 +1,7 @@
+/* Como un tester de software, quiero realizar pruebas automatizadas para verificar 
+la visualización del código fuente de la página principal de Wikipedia en español, 
+para garantizar la integridad del contenido y su correcta presentación.
+*/
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const screenshot = require('screenshot-desktop');

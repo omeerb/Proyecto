@@ -1,3 +1,6 @@
+/*Como usuario, quiero realizar una búsqueda de la biografía de Juan Pablo Duarte 
+en Google, para obtener información relevante sobre su vida.
+*/
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const fs = require('fs');
 

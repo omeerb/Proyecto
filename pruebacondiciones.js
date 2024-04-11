@@ -1,3 +1,7 @@
+/*Como usuario, deseo realizar pruebas automatizadas para verificar la visualización de las 
+condiciones de servicio en la página de Google, con el fin de asegurar que los 
+usuarios puedan acceder a esta información de manera adecuada.
+*/
 const { Builder, By, until } = require('selenium-webdriver');
 const fs = require('fs');
 

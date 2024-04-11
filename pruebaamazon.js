@@ -1,24 +1,30 @@
+/*Como usuario interesado en comprar una camisa en línea, quiero realizar una 
+búsqueda de la palabra "camisa" en Amazon, para explorar las opciones disponibles 
+para comprar el producto.
+*/
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const fs = require('fs');
 
-(async function example() {
+(async function amazonSearchTest() {
   let driver = await new Builder().forBrowser('chrome').build();
   try {
-    
-    for (let i = 0; i < Math.min(5, searchResults.length); i++) {
-      let titleElement = await searchResults[i].findElement(By.css('h2'));
-      let linkElement = await titleElement.findElement(By.css('a'));
-      let title = await titleElement.getText();
-      let link = await linkElement.getAttribute('href');
-      console.log('Título:', title);
-      console.log('Enlace:', link);
-    }
+    // Abre Amazon
+    await driver.get('https://www.amazon.com');
+
+    // Ingresa la palabra "camisa" en el campo de búsqueda y presiona Enter
+    await driver.findElement(By.id('twotabsearchtextbox')).sendKeys('camisa', Key.RETURN);
+
+    // Espera hasta que la página de resultados de búsqueda se cargue completamente
+    await driver.wait(until.titleContains('camisa'), 10000);
+
     // Captura de pantalla
     const screenshot = await driver.takeScreenshot();
     const timestamp = new Date().toISOString().replace(/:/g, '-');
-    const screenshotPath = `./capturas/screenshot_${timestamp}.png`;
+    const screenshotPath = `./capturas/amazon_camisa_${timestamp}.png`;
     fs.writeFileSync(screenshotPath, screenshot, 'base64');
     console.log(`Captura de pantalla guardada en: ${screenshotPath}`);
+  } catch (error) {
+    console.error("Error durante la prueba:", error);
   } finally {
     await driver.quit();
   }
